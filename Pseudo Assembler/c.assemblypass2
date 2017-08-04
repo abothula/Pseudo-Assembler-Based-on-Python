@@ -1,0 +1,21 @@
+LDA ?a
+ADI 1
+STA ?a
+LDA 19
+MOV Breg, Areg
+MVI Areg, 1
+ADD Breg
+STA 19
+L1 PUSH Dreg
+MVI Ereg, 2
+LDA 20
+ADI 1
+STA 20
+MOV Areg, Ereg
+SUI 1
+MOV Ereg, Areg
+JNZ 9
+POP Dreg
+c DC 6
+e DC 7
+HLT

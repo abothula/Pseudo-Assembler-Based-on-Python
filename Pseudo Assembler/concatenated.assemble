@@ -1,0 +1,61 @@
+LDA a
+ADI 1
+STA a
+LDA c
+MOV Breg, Areg
+MVI Areg, 1
+ADD Breg
+STA c
+L1 PUSH Dreg
+MVI Ereg, 2
+LDA e
+ADI 1
+STA e
+MOV Areg, Ereg
+SUI 1
+MOV Ereg, Areg
+JNZ L1
+POP Dreg
+c DC 6
+e DC 7
+
+ 
+ 
+L2 PUSH Dreg
+MVI Ereg, 5
+I1 LDA a
+MOV Breg, Areg
+LDA c
+SUB Breg
+JP P1
+JZ P1
+MVI Areg, 9
+STA b
+P1 PASS 
+LDA a
+ADI 1
+STA a
+MOV Areg, Ereg
+SUI 1
+MOV Ereg, Areg
+JNZ L2
+POP Dreg
+LDA e
+STA d
+L3 PUSH Dreg
+MVI Ereg, 4
+LDA d
+ADI 1
+STA d
+MOV Areg, Ereg
+SUI 1
+MOV Ereg, Areg
+JNZ L3
+POP Dreg
+d DC 2
+a DC 1
+b DC 5
+
+ 
+ 
+HLT

@@ -1,0 +1,35 @@
+L2 PUSH Dreg
+MVI Ereg, 5
+I1 LDA a
+MOV Breg, Areg
+LDA c
+SUB Breg
+JP P1
+JZ P1
+MVI Areg, 9
+STA b
+P1 PASS 
+LDA a
+ADI 1
+STA a
+MOV Areg, Ereg
+SUI 1
+MOV Ereg, Areg
+JNZ L2
+POP Dreg
+LDA e
+STA d
+L3 PUSH Dreg
+MVI Ereg, 4
+LDA d
+ADI 1
+STA d
+MOV Areg, Ereg
+SUI 1
+MOV Ereg, Areg
+JNZ L3
+POP Dreg
+d DC 2
+a DC 1
+b DC 5
+HLT
